@@ -1,6 +1,6 @@
 # FirebaseRealtime
 
-A simple library to make Firebase Realtime Databse CRUD operations.
+A simple library to make Firebase Realtime Database CRUD operations.
 
 ## Features
 - save (create and update)

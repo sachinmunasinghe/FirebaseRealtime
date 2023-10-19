@@ -37,7 +37,7 @@ String FirebaseRealtime::getSecretParam() {
 
 int FirebaseRealtime::save(const String &parentNode, const String &childNode, const String &jsonData, bool isUpdate) {
   int httpResponseCode;
-  http.begin(client, URL + "/" + parentNode + "/" + childNode + ".json");
+  http.begin(client, URL + "/" + parentNode + "/" + childNode + ".json" + getSecretParam());
   http.addHeader("Content-Type", "application/json");
   if (isUpdate)
     httpResponseCode = http.PATCH(jsonData);
@@ -54,7 +54,7 @@ int FirebaseRealtime::fetch(const String &parentNode, const String &childNode, D
 }
 
 int FirebaseRealtime::remove(const String &parentNode, const String &childNode) {
-  http.begin(client, URL + "/" + parentNode + "/" + childNode + ".json");
+  http.begin(client, URL + "/" + parentNode + "/" + childNode + ".json" + getSecretParam());
   int httpResponseCode = http.DELETE();
   return httpResponseCode;
 }
